@@ -3,6 +3,7 @@ var util = require('util');
 module.exports = Config;
 
 function Config () {
+  this._env = 'development';
   this._callbacks = [];
   this._loaded = false;
   this._loading = false;
