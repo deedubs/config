@@ -10,7 +10,10 @@ function Config () {
 }
 
 Config.prototype.env = function (env) {
-  this._env = env;
+
+  if (env) {
+    this._env = env;
+  }
   
   return this;
 };
@@ -22,7 +25,7 @@ Config.prototype.key = function (key) {
 };
 
 Config.prototype.cachePath = function (cachePath) {
-  this._cachePath = cachePath;
+  this._cachePath = cachePath.replace('%ENV%', this._env);
 
   return this;
 };
